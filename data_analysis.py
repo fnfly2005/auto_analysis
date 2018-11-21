@@ -10,8 +10,9 @@ Version: v1.0
 ##################################
 import pandas as pd
 import sys
+import matplotlib.pyplot as plt
 
-df = pd.read_csv(sys.argv[1],sep='\t')
+df = pd.read_csv(sys.argv[1],sep='\t',dayfirst=True, index_col='日期')
 
 def deldf(*args):
     for a in args:
@@ -20,3 +21,5 @@ def deldf(*args):
 deldf('数据源','月份','动销场次数','在线项目数','动销项目数','毛利额','战区')
 
 print df.head(5)
+df['销售额'].plot()
+plt.show()
