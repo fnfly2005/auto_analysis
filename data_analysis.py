@@ -20,6 +20,7 @@ def deldf(*args):
 
 deldf('数据源','月份','动销场次数','在线项目数','动销项目数','毛利额','战区')
 
-print df.head(5)
-df['销售额'].plot()
-plt.show()
+dt=df['销售额'].groupby('日期').sum() #group by & sum 函数
+print dt
+#dt.plot() #绘图
+#plt.savefig(sys.argv[2])#输出图片

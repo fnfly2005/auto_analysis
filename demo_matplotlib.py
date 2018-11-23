@@ -9,10 +9,10 @@ Version: v1.0
 '''
 ##################################
 import matplotlib.pyplot as plt
-import numpy as np
+import sys
 
 fig=plt.figure()
 fig.suptitle('no asxes on this figure')
 
-fig,ax_lst =plt.subplots(2,2)
-fig.savefig("examples.jpg")
+fig,ax_lst =plt.subplots(1,1) #图形矩阵数量
+fig.savefig(sys.argv[1])#输出图片
