@@ -9,18 +9,15 @@ Version: v1.0
 '''
 ##################################
 import pandas as pd
-import sys
 import matplotlib.pyplot as plt
+path="/Users/fannian/Downloads/dim_myshow_project.txt"
 
-df = pd.read_csv(sys.argv[1],sep='\t',dayfirst=True, index_col='日期')
+df = pd.read_csv(path,\
+    sep='\t',\
+    dtype={"soleagent":int})#指定列字段类型
 
-def deldf(*args):
-    for a in args:
-        del df[a]
+print df.describe() #描述统计
 
-deldf('数据源','月份','动销场次数','在线项目数','动销项目数','毛利额','战区')
-
-dt=df['销售额'].groupby('日期').sum() #group by & sum 函数
-print dt
+#dt=df['销售额'].groupby('日期').sum() #group by & sum 函数
 #dt.plot() #绘图
 #plt.savefig(sys.argv[2])#输出图片
