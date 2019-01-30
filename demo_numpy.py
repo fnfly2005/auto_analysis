@@ -28,3 +28,6 @@ my_array_column_2 = my_array[:, 1]
 print my_array_column_2
 a = np.array([[1.0, 2.0], [3.0, 4.0]])
 b = np.array([[5.0, 6.0], [7.0, 8.0]])
+
+print "一维数组-等差数列",
+print np.linspace(1,100,num=100)
