@@ -27,7 +27,7 @@ def drawFigure(x,y):
     fig = plt.figure()
     fig.suptitle('no asxes on this figure')
     fig,ax_lst = plt.subplots(1,1) #图形矩阵数量
-    ax_lst.plot(x,y) #设置x轴，y轴值
+    ax_lst.plot(x,y,label='test') #设置x轴/y轴值,标签值
     fig.savefig(path + 'figure.png')#输出图片
 
 if __name__ == '__main__':
