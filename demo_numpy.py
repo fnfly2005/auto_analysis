@@ -3,7 +3,7 @@
 '''
 Description: 学习numpy
 矩阵的形状、修改矩阵的元素、生成0矩阵&1矩阵&随机矩阵、生成单位矩阵、点乘、矩阵运算
-等差数组矩阵
+等差数组矩阵、矩阵求和
 '''
 import numpy as np
 
@@ -35,10 +35,13 @@ class ArrayDemo(object):
     def tasArray(self):
         return self.arr.T#返回矩阵的转置矩阵
 
+    def sumArray(self):
+        return self.arr.sum()#计算矩阵所有元素和
+
 if __name__ == '__main__':
     ar1 = ArrayDemo([[1.,2.], [7.,4.], [3.,5.]])
     ar2 = ArrayDemo([[4.,5.,1.], [6.,1.,4.]])
     rad = ar1.builtArray((2,3),2)
     
     print ar2.dotArray(ar1.arr)
-    print rad + 1#常规加减乘除，对矩阵每个元素进行
+    print rad + 1#常规加减乘除，若是常数，则对矩阵每个元素进行;若是矩阵,则必须相同形状
