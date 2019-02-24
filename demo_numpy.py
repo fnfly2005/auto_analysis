@@ -1,33 +1,44 @@
 #!/usr/bin/python
 #coding:utf-8
-##################################
 '''
-Path: 
 Description: 学习numpy
-Date: 
-Version: v1.0
+矩阵的形状、修改矩阵的元素、生成0矩阵&1矩阵&随机矩阵、生成单位矩阵、点乘、矩阵运算
+等差数组矩阵
 '''
-##################################
 import numpy as np
-my_array=np.array([1,2,3,4,5])
-print my_array
-print my_array.shape
-my_array[0]=-1
-print my_array
-my_new_array = np.zeros((5))
-print my_new_array
-my_random_array = np.random.random((5))
-print my_random_array
-my_2d_array = np.zeros((2, 3)) 
-print my_2d_array
-my_2d_array_new = np.ones((2, 3)) 
-print my_2d_array_new
-my_array = np.array([[4, 5], [6, 1]])
-print my_array[0][1]
-my_array_column_2 = my_array[:, 1]
-print my_array_column_2
-a = np.array([[1.0, 2.0], [3.0, 4.0]])
-b = np.array([[5.0, 6.0], [7.0, 8.0]])
 
-print "一维数组-等差数列",
-print np.linspace(1,100,num=100)
+class ArrayDemo(object):
+    def __init__(self,arr_var):
+        self.arr = np.array(arr_var)
+        self.shape = self.arr.shape #shape属性返回x行乘y列的数组形状
+
+    def setVar(self,key,var):
+        self.arr[key] = var
+
+    def builtArray(self,tupe,status=0):
+        if status == 0:
+            return np.zeros(tupe)#返回0矩阵
+        elif status == 1:
+            return np.ones(tupe)#返回1矩阵
+        else:
+            return np.random.random(tupe)#返回0-1的随机数矩阵
+
+    def eyeArray(self,num):
+        return np.eye(num)#返回num*num单位矩阵
+
+    def atmArray(self,sta,end,num):
+        return np.linspace(sta,end,num=num)#返回等差数列矩阵,sta开始-end结束-num步长
+
+    def dotArray(self,ar):
+        return self.arr.dot(ar)#ar2点乘ar1: 结果获得ar2的行数和ar1的列数
+        
+    def tasArray(self):
+        return self.arr.T#返回矩阵的转置矩阵
+
+if __name__ == '__main__':
+    ar1 = ArrayDemo([[1.,2.], [7.,4.], [3.,5.]])
+    ar2 = ArrayDemo([[4.,5.,1.], [6.,1.,4.]])
+    rad = ar1.builtArray((2,3),2)
+    
+    print ar2.dotArray(ar1.arr)
+    print rad + 1#常规加减乘除，对矩阵每个元素进行
