@@ -38,10 +38,16 @@ class ArrayDemo(object):
     def sumArray(self):
         return self.arr.sum()#计算矩阵所有元素和
 
+    def randomArray(self,ar):
+        #返回一个洗牌后的矩阵
+        num = np.random.permutation(len(ar))
+        return ar[num] #ar[array] 返回一个按array给出的索引排序的矩阵
+
 if __name__ == '__main__':
     ar1 = ArrayDemo([[1.,2.], [7.,4.], [3.,5.]])
     ar2 = ArrayDemo([[4.,5.,1.], [6.,1.,4.]])
     rad = ar1.builtArray((2,3),2)
     
+    print ar2.randomArray(ar2.arr)
     print ar2.dotArray(ar1.arr)
     print rad + 1#常规加减乘除，若是常数，则对矩阵每个元素进行;若是矩阵,则必须相同形状
